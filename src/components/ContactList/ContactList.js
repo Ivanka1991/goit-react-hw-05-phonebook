@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import css from "./ContactList.module.css";
 
 export default function ContactList({ contacts, onRemoveContact }) {
+  const phonebookContacts = contacts();
   return (
     <ul className={css.list}>
-      {contacts.map(([id, name, number]) => {
+      {phonebookContacts.map(({ id, name, number }) => {
         return (
           <li key={id} className={css.list__item}>
             <span className={css.name}>{name}</span>

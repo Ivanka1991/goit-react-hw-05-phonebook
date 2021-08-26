@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm/ContactForm";
 import { v4 as uuidv4 } from "uuid";
 import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
+import s from "../components/App.module.css";
 
 export default function App() {
   const [contacts, setContacts] = useState(() => {
@@ -56,15 +57,15 @@ export default function App() {
   };
 
   return (
-    <>
-      <h2>Phonebook</h2>
+    <div className={s.box}>
+      <h2 className={s.title}>Phonebook</h2>
       <ContactForm onSubmit={formSubmitHandler} />
-      <h2>Contacts</h2>
+      <h2 className={s.title}>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
       <ContactList
         contacts={getVisibleContacts}
         onRemoveContact={removeContact}
       />
-    </>
+    </div>
   );
 }
